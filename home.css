@@ -5,3 +5,15 @@
 .category{
     border: none;
 }
+header{
+    display: flex;
+}
+.leftBar{
+    padding: 20px;
+}
+.sh{
+    padding: 20px;
+}
+.center{
+    border-style: none;
+}
