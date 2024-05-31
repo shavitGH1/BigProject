@@ -5,7 +5,10 @@
 .category{
   border: none;
 }
-
+header{
+  width: 98%;
+  position:fixed;
+}
 .leftBar{
   padding: 20px;
 }
