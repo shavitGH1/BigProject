@@ -1,8 +1,25 @@
-#googleMap{
-    width:50%;
-    height:400px;
-}
+
 header{
     width: 98%;
     position:fixed;
-  }
+}
+
+.map {
+   width: 50%;
+   height: 400px;
+   
+}
+
+#title{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.branchesList{
+    padding: 100px;
+}
+#map{
+    width: 600px;
+    height: 450px;
+    border:0px;
+}
