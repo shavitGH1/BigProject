@@ -1,3 +1,4 @@
+
 const initSlider = () => {
     const imageList = document.querySelector(".slider-wrapper .image-list");
     const slideButtons = document.querySelectorAll(".slider-wrapper .slide-button");
@@ -64,5 +65,10 @@ const initSlider = () => {
     });
 }
 
+
+
 window.addEventListener("resize", initSlider);
 window.addEventListener("load", initSlider);
+
+
+
