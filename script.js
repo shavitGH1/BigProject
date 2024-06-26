@@ -74,3 +74,25 @@ window.addEventListener("load", initSlider);
 
 
 
+const btn_SignIn = document.getElementById('btn_SignIn');
+btn_SignIn.onclick = () => {
+
+    const signInContainer = document.createElement('div');
+    signInContainer.classList.add('signIn-container');
+
+    const userName = document.createElement('input');
+    userName.classList.add('userName');
+    userName.type = 'text';
+    
+
+    const password = document.createElement('input');
+    password.classList.add('password');
+    password.type = 'password';
+
+    userName.style.display = 'block';
+    password.style.display = 'block';
+
+
+   
+
+}
