@@ -1,5 +1,14 @@
+const womenModels = require ('../models/women')
+
+
 function showWomenPage(req, res){
-    res.render("women.ejs");
+    const womenItems = womenModels.getAllWomensItems();
+    res.render("women.ejs",   { womenItems });
 }
 
-module.exports = {showWomenPage};
+
+
+
+module.exports = {
+    showWomenPage
+};

@@ -1,24 +1,21 @@
+//Navigation through the pages of the home page
 
 const express = require('express');
 const router = express.Router();
 
 
 const homeController = require('../controllers/home');
+
 router.route("/").get(homeController.showHomePage);
 
-const menController = require('../controllers/men');
-router.route("/men").get(menController.showMenPage);
+router.route("/men").get(homeController.showMenPage);
 
-const loginController = require('../controllers/logIn');
-router.route("/logIn").get(loginController.showlogin);
+router.route("/women").get(homeController.showWomenPage);
 
-const signipController = require('../controllers/signUp');
-router.route("/signUp").get(signipController.showsignup);
+router.route("/logIn").get(homeController.showlogin);
 
-const branchesController = require('../controllers/branches');
-router.route("/branches").get(branchesController.showBranchesPage);
+router.route("/signUp").get(homeController.showsignup);
 
-const womenController = require('../controllers/women');
-router.route("/women").get(womenController.showWomenPage);
+router.route("/branches").get(homeController.showBranchesPage);
 
 module.exports = router;
