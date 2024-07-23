@@ -13,45 +13,43 @@
 </head>
 
 <body>
-    <header class="row">
-      <div class="col-lg-3 leftBar">
-        <span class="leftBar">
-          <a href="/logIn"><button id="btn_SignIn" type="button" class="btn btn-outline-secondary">Sign in</button></a>
-        <a href="/signUp"><button id="btn_SignUp" type="button" class="btn btn-outline-secondary">Sign up</button></a>
-        <a href="/"><button id="btn_cart" type="button" class="btn"><i class="bi bi-bag"></i></button></a>
-        </span>
+  <header class="row">
+    <div class="col-lg-3 leftBar">
+      <span class="leftBar"> <!-- sign up,sign in,cart, to fill color in the bag -->
+        <a href="/logIn"><button id="btn_SignIn" type="button" class="btn btn-outline-secondary">Sign in</button></a>
+      <a href="/signUp"><button id="btn_SignUp" type="button" class="btn btn-outline-secondary">Sign up</button></a>
+      <a href="/cart"><button id="btn_cart" type="button" class="btn"><i class="bi bi-bag"></i></button></a>
+      </span>
+    </div>
+      
+      <div class="col-lg-4"> <!-- bouttom: women,men,branches-->
+        <div class="input-group mb-4 sh">
+
+          <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <a href="/women"><button type="button" class="btn btn-link un-l">Women</button></a>
+            <a href="/men"><button type="button" class="btn btn-link un-l">Men</button></a>
+            <a href="/branches"><button type="button" class="btn btn-link un-l">Branches</button></a>
+          </div>
+        </div>
       </div>
-        
-        <div class="col-lg-4">
-          <div class="input-group mb-4 sh">
 
-            <div class="btn-group" role="group" aria-label="Basic outlined example">
-              <a href="/women"><button type="button" class="btn btn-link un-l">Women</button></a>
-          <a href="/men"><button type="button" class="btn btn-link un-l">Men</button></a>
-          <a href="/branches"><button type="button" class="btn btn-link un-l">Branches</button></a>
-            </div>
-          </div>
+      <div class="col-lg-4">  <!-- search opitions -->
+        <div class="input-group mb-4 sh">
+          <input type="text" class="form-control rounded inline" placeholder="search" aria-label="Recipient's username"
+            aria-describedby="button-addon2">
+          <button class="btn btn-light s-right-btn" type="button" id="button-addon2">
+            <i class="bi bi-search"></i>
+          </button>
         </div>
-
-        <div class="col-lg-4">
-          <div class="input-group mb-4 sh">
-            <input type="text" class="form-control rounded inline" placeholder="search" aria-label="Recipient's username"
-              aria-describedby="button-addon2">
-            <button class="btn btn-light s-right-btn" type="button" id="button-addon2">
-              <i class="bi bi-search"></i>
-            </button>
-          </div>
-        </div>
+      </div>
 
 
 
-       <div class="col-lg-1 text-end">
-        <a href="/"><img id="logo"
-            src="images\LOGO.png"
-            alt="LOGO"></a>
-        </div>
-        <hr>
-      </header>
+     <div class="col-lg-1 text-end"> <!--LOGO-->
+      <a href="/"><img id="logo" src="images\LOGO.png" alt="LOGO"></a>
+      </div>
+      <hr>
+    </header>
    
     
     <main>
@@ -66,7 +64,7 @@
                     <p><%= womenItems[i].description %></p>
                     <p><%= womenItems[i].price %></p>
                     <button class="add-to-cart-btn">Add To Cart</button>
-                    <a href="/women?id=<%= womenItems[i].id %> ">see me</a>
+                    <a href="/woman?id=<%= womenItems[i].id %> ">see me</a>
                 </div><br>
               </article>
               <% } %>   

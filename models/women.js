@@ -11,10 +11,10 @@ function getAllWomensItems(){//A function that returns all products
 }
 
 function getWomenItem(id){ //A function that returns a specific product
-    return womenItem.filter(womenItems => womenItems.id == id)[0];
+    return womenItems.filter(womenItems => womenItems.id == id)[0];
 }
 
-
+//Exports all function
 module.exports = {
      getAllWomensItems,
      getWomenItem

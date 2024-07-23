@@ -56,18 +56,15 @@
       <div class="container">
         <div id="product-list" class="product-list">
             <!-- Product items will be dynamically added here -->
-             <% for(i=0; i<menItems.length; i++) { %>
+           
               <article>
-                <div class="items">
-                  <img class="pic" src="<%=  menItems[i].image %>" alt="<%= menItems[i].name %>">
-                  <h3><%= menItems[i].name %></h3>
-                  <p><%= menItems[i].description %></p>
-                  <p><%= menItems[i].price %></p>
-                  <button class="add-to-cart-btn">Add To Cart</button>
-                  <a href="/man?id=<%= menItems[i].id %> ">see me</a>
-                </div><br>
-              </article>                
-              <% } %>   
+                <img src="<%=  manItem.image %>" alt="<%= manItem.name %>">
+                <h3><%= manItem.name %></h3>
+                <p><%= manItem.description %></p>
+                <p><%= manItem.price %></p>
+                <button class="add-to-cart-btn">Add To Cart</button>
+              </article>
+             
 
         </div>
     </div>

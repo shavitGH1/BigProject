@@ -1,3 +1,4 @@
+//Handles requests that come from the men's page
 
 const menModels = require ('../models/men')
 
@@ -13,10 +14,10 @@ function getManItem(req, res){
     if(manItem == undefined)
         res.status(404).send("can't find item");
     else
-        res.render('man.ejs', {manItem});
+        res.render("man.ejs", {manItem});
 }
 
-
+//Exports all function
 module.exports = {
     showMenPage,
     getManItem

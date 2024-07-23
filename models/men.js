@@ -11,12 +11,12 @@ function getAllMensItems(){//A function that returns all products
     return menItems;
 }
 
-function getMenItem(id){ //A function that returns a specific product
+function getManItem(id){ //A function that returns a specific product
     return menItems.filter(menItems => menItems.id == id)[0];
 }
 
-
+//Exports all function
 module.exports = {
     getAllMensItems,
-    getMenItem
+    getManItem
 };
