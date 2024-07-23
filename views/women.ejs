@@ -60,15 +60,17 @@
             <!-- Product items will be dynamically added here -->
              <% for(i=0; i<womenItems.length; i++) { %>
               <article>
-                <img src="<%=  womenItems[i].image %>" alt="<%= womenItems[i].name %>">
-                <h3><%= womenItems[i].name %></h3>
-                <p><%= womenItems[i].description %></p>
-                <p><%= womenItems[i].price %></p>
-                <button class="add-to-cart-btn">Add To Cart</button>
-                <a href="/women?id=<%= womenItems[i].id %> ">see me</a>
+                <div class="items">
+                    <img class="pic" src="<%=  womenItems[i].image %>" alt="<%= womenItems[i].name %>">
+                    <h3><%= womenItems[i].name %></h3>
+                    <p><%= womenItems[i].description %></p>
+                    <p><%= womenItems[i].price %></p>
+                    <button class="add-to-cart-btn">Add To Cart</button>
+                    <a href="/women?id=<%= womenItems[i].id %> ">see me</a>
+                </div><br>
               </article>
               <% } %>   
-
+    
         </div>
     </div>
     </main>
