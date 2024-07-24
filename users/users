@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+</head>
+<body>
+    <form action="/users" method="post">
+        <input name="username">
+        <input name="password" type="password">
+        <button type="submit">Add user</button>
+    </form>
+    <% if (users && users.length) { %>
+        <% users.forEach(function(user) { %>
+            <div>
+                <p>Username: <%= user._id %></p>
+                <p>Password: <%= user.password %></p>
+                <form action="/users/<%= user._id %>?_method=DELETE" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+                <hr>
+            </div>
+        <% }) %>
+    <% } else { %>
+        <p>No users found.</p>
+    <% } %>
+</body>
+</html>
