@@ -89,6 +89,8 @@ body{
 .top5{
   display: flex;
   flex-direction: row;
+  width: 173px;
+  height: 173px;
 }
 .title-top5{
   position: absolute;
