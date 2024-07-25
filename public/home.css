@@ -86,3 +86,13 @@ main {
 body{
   background-color:rgb(230, 220, 201);
 }
+.top5{
+  display: flex;
+  flex-direction: row;
+}
+.title-top5{
+  position: absolute;
+  left: 40%;
+  bottom: 10%;
+  font-size:217%;
+}
