@@ -13,6 +13,7 @@
 </head>
 
 <body>
+  
   <header class="row">
     <div class="col-lg-3 leftBar">
       <span class="leftBar"> <!-- sign up,sign in,cart, to fill color in the bag -->
@@ -50,7 +51,7 @@
       </div>
       <hr>
     </header>
-   
+    
     
     <main>
       <div class="container">
@@ -66,15 +67,17 @@
                   <p><%= cartItems[i].price %></p>
                 </article>
                 <% } %>
+               
 
         </div>
     </div>
+    
     </main>
 
     <hr>  
     <footer>
       <div>
-        <button type="button" class="btn btn-link un-l">Contact Us</button>
+        <button id="contact" type="button" class="btn btn-link un-l">Contact Us</button>
         <p>Find us on Facebook</p>
         <p>Find us on instegram</p>
       </div>
@@ -88,6 +91,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="/scrip.js"></script>  
 
 </body>
 
