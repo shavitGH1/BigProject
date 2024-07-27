@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products List</title>
+</head>
+<body>
+    <h7>Search</h7>
+    <form action="/products/search" method="post">
+        <input type="text" name="name" placeholder="Search by Name">
+        <input type="text" name="company" placeholder="Search by Company">
+        <input type="text" name="gender" def placeholder="Search by Gender (men, women, unisex)">
+        <button type="submit">Search</button>
+    </form>
+    <% if (username == 'admin') { %>
+        <h7>Add Products</h7>
+        <form action="/products" method="post">
+            <input name="name" placeholder="name">
+            <input name="description" placeholder="description">
+            <input name="gender" placeholder="gender: men, women, unisex">
+            <input name="company" placeholder="company">
+            <input name="size" placeholder="size: s, m, l">
+            <button type="submit">Add Product</button>
+        </form>
+    <% } %>
+    <% if (allProducts && allProducts.length) { %>
+        <% allProducts.forEach(function(product) { %>
+            <div>
+                <p id="<%= product.name %>">
+                Name: <%= product.name %>,
+                Description: <%= product.description %>,
+                </p>
+                <form action="/products/<%= product.name %>" method="get">
+                    <button type="submit">Show more</button>
+                </form>
+                <form action="/products/<%= product.name %>/delete?_method=DELETE" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+                <hr>
+            </div>
+        <% }) %>
+    <% } else { %>
+        <p>No users found.</p>
+    <% } %>
+</body>
+</html>

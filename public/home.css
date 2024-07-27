@@ -1,109 +1,109 @@
 #logo{
-    height: 90px;
-    width: 150px;
+  height: 90px;
+  width: 150px;
 }
 .category{
-  border: none;
+border: none;
 }
 header{
-  width: 98%;
-  position:fixed;
-  z-index: 1;
+width: 98%;
+position:fixed;
+z-index: 1;
 }
 .leftBar{
-  padding: 20px;
+padding: 20px;
 }
 .sh{
-  padding: 20px;
+padding: 20px;
 }
 .center{
-  border-style: none;
+border-style: none;
 }
 
 .center:hover{
-  background-color: #fff;
-  color: #ccc;
+background-color: #fff;
+color: #ccc;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
 main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
 }
 
 .un-l{
-  text-decoration: none;
-  color: gray;
+text-decoration: none;
+color: gray;
 }
 
 .container {
-  max-width: 1200px;
-  width: 95%;
-  display: flex;
-  flex-direction: column;
+max-width: 1200px;
+width: 95%;
+display: flex;
+flex-direction: column;
 }
 
 
 .btn-link{
-  color: black;
+color: black;
 }
 .carousel{
-  width: 700px;
-  height: 100px;
+width: 700px;
+height: 100px;
 }
 
 .carousel-inner{
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  padding: 100px;
+position: relative;
+overflow: hidden;
+display: flex;
+padding: 100px;
 }
 .carousel-item{
-  width: 700px;
-  height: 700px;
+width: 700px;
+height: 700px;
 }
 .carousel-slide{
-  position: absolute;
-  top: 50px;
+position: absolute;
+top: 50px;
 }
 #signUp-form{
-  border-radius: 15px;
-  border: 3px solid  #ccc;;
+border-radius: 15px;
+border: 3px solid  #ccc;;
 
 }
 #logIn-form{
-  border-radius: 15px;
-  border: 3px solid  #ccc;;
+border-radius: 15px;
+border: 3px solid  #ccc;;
 
 }
 body{
-  background-color:rgb(230, 220, 201);
+background-color:rgb(230, 220, 201);
 }
 .top5{
-  display: flex;
-  flex-direction: row;
-  max-width: 173%;
-  max-height: 173%;
+display: flex;
+flex-direction: row;
+max-width: 173%;
+max-height: 173%;
 }
 .title-top5{
-  position: absolute;
-  left: 40%;
-  bottom: 10%;
-  font-size:217%;
+position: absolute;
+left: 40%;
+bottom: 10%;
+font-size:217%;
 }
 #pic1{
-  background-image: url(public\images\women\bar.jpg);
-  /* background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;  
-  z-index: 1; */
+background-image: url(public\images\women\bar.jpg);
+/* background-size: cover;
+background-position: center;
+background-repeat: no-repeat;  
+z-index: 1; */
 }
 /* .Total{
 position: relative;

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        
+    </div>
+    <div>
+        <p>
+        ID: <%= product._id %>,
+        Name: <%= product.name %>,
+        Description: <%= product.description %>,
+        Gender: <%= product.gender %>,
+        Company: <%= product.company %>,
+        Size: <%= product.size %></p>
+        <form action="/products/<%= product.name %>/delete?_method=DELETE" method="post">
+            <button type="submit">Delete</button>
+        </form>
+        <hr>
+    </div>
+    <% if (username == 'admin') { %>
+        <form action="/products/<%= product.name %>/update" method="post">
+            <input name="_id" placeholder="ID">
+            <input name="name" placeholder="name">
+            <input name="description" placeholder="description">
+            <input name="gender" placeholder="gender: men, women, unisex">
+            <input name="company" placeholder="company">
+            <input name="size" placeholder="size: s, m, l">
+            <button type="submit">Edit</button>
+        </form>
+    <% } %>
+</body>
+</html>
