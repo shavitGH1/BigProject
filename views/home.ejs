@@ -69,6 +69,7 @@
     <% for(i=0; i< menItems.length; i++) { %>
       <div class="card">
         <article>
+          <img class="pic" src="<%=  menItems[i].image %>" alt="<%= menItems[i].name %>">
           <h3><%= menItems[i].name %></h3>
           <p><%= menItems[i].description %></p>
           <p><%= menItems[i].price %></p>
