@@ -29,8 +29,11 @@ app.use(home);
 app.use(login);
 app.use(women);
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> b55d85018be1f4ddd5c6e9e0cd40f7d7dd6d004c
 app.listen(80);
 
 app.listen(process.env.PORT);
