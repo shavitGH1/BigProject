@@ -13,45 +13,53 @@
 </head>
 
 <body>
-    <header class="row">
-      <div class="col-lg-3 leftBar">
-        <span class="leftBar">
-          <a href="/logIn"><button id="btn_SignIn" type="button" class="btn btn-outline-secondary">Sign in</button></a>
+  <header class="row">
+    <div class="col-lg-4 leftBar"><!-- sign up,sign in,cart, to fill color in the bag -->
+      <span class="leftBar">
+        <a href="/logIn"><button id="btn_SignIn" type="button" class="btn btn-outline-secondary">Sign in</button></a>
         <a href="/register"><button id="btn_SignUp" type="button" class="btn btn-outline-secondary">Sign up</button></a>
-        <a href="/"><button id="btn_cart" type="button" class="btn"><i class="bi bi-bag"></i></button></a>
-        </span>
-      </div>
-        
-        <div class="col-lg-4">
-          <div class="input-group mb-4 sh">
+        <a href="/cart"><button id="btn_cart" type="button" class="btn"><i class="bi bi-bag"></i></button></a>
+        <a href="/users"><button id="btn_Users" type="button" class="btn btn-outline-secondary">users</button></a>
+        <a href="/allProducts"><button id="btn_Products" type="button" class="btn btn-outline-secondary">allProducts</button></a>
+      </span>
+    </div>
 
-            <div class="btn-group" role="group" aria-label="Basic outlined example">
-              <a href="/women"><button type="button" class="btn btn-link un-l">Women</button></a>
+    <div class="col-lg-2">  <!-- bouttom: women,men,branches-->
+      <div class="input-group mb-4 sh">
+
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+          <a href="/women"><button type="button" class="btn btn-link un-l">Women</button></a>
           <a href="/men"><button type="button" class="btn btn-link un-l">Men</button></a>
           <a href="/branches"><button type="button" class="btn btn-link un-l">Branches</button></a>
-            </div>
-          </div>
         </div>
+      </div>
+    </div>
+ <!-- search opitions -->
+ <div class="col-lg-5">
+  <div class="input-group mb-4 sh">
+    <div>
+<form action="/searchedProducts" method="post">
+    <input type="text" class="form-control rounded inline"  name="name" placeholder="Search by Name" aria-label="Recipient's username"
+      aria-describedby="button-addon2">
+   
+</form>
+</div>  
+<div>
+<form action="/searchedProducts" method="post">
+<input type="text" class="form-control rounded inline"  name="name" placeholder="Search by Company" aria-label="Recipient's username"
+      aria-describedby="button-addon2">
+    
+</form>
+</div>
+  </div>
+</div>
 
-        <div class="col-lg-4">
-          <div class="input-group mb-4 sh">
-            <input type="text" class="form-control rounded inline" placeholder="search" aria-label="Recipient's username"
-              aria-describedby="button-addon2">
-            <button class="btn btn-light s-right-btn" type="button" id="button-addon2">
-              <i class="bi bi-search"></i>
-            </button>
-          </div>
-        </div>
-
-
-
-       <div class="col-lg-1 text-end">
-        <a href="/"><img id="logo"
-            src="images\LOGO.png"
-            alt="LOGO"></a>
-        </div>
-        <hr>
-      </header>
+<!--LOGO-->
+    <div class="col-lg-1 text-end">
+      <a href="/"><img id="logo" src="images\LOGO.png" alt="LOGO"></a>
+    </div>
+    <hr>
+  </header>
    
     
       <main>

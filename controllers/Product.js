@@ -87,6 +87,29 @@ async function searchProducts(req, res) {
   }
 };
 
+async function searchProduct(req, res) {
+  const { company, gender, name } = req.body;
+ 
+   let query = {};
+ 
+     if (company) {
+         query.company = company;
+     }
+     if (gender) {
+         query.gender = gender;
+     }
+     if (name) {
+       query.name = { $regex: `^${name}`, $options: 'i' }
+     }
+ 
+   try {
+     const allProducts = await productService.searchProd(query)
+     res.render('searchedProducts', { allProducts, username: req.session.username });
+   } catch (error) {
+     res.status(500).send(error.message);
+   }
+ };
+ 
 
 
 module.exports = {
@@ -97,5 +120,6 @@ module.exports = {
   showProduct,
   updateProd,
   searchProducts,
-  showProductByID
+  showProductByID,
+  searchProduct
 }

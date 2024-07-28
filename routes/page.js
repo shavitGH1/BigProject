@@ -29,6 +29,7 @@ router.route("/cart").get(homeController.showcart);
 
 router.route("/graph").get(homeController.showGraph);
 
+router.post('/searchedProducts', productsController.searchProduct);
 
 
 module.exports = router;
