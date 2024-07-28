@@ -1,28 +1,39 @@
-//import express from 'express';
-const express = require ('express'); //loading libery"express"
+require("dotenv").config();
 
-const home = require('./routes/page'); //import a module located at ./routes/page.
-const men = require('./routes/men'); //import a module located at ./routes/men.
-const women = require('./routes/women'); //import a module located at ./routes/women.
+const mongoose = require("mongoose");
+mongoose.connect(process.env.DB_CONNECTION_STRING, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+});
 
+const express = require("express");
+const app = express();
+const session = require('express-session');
+app.use(session({
+    secret: 'foo',
+    saveUninitialized: false,
+    resave: false
+}))
 
-const app = express(); //creating the server using express
+const home = require('./routes/page');
+const login = require('./routes/login');
+const women = require('./routes/women');
 
+app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: false }));
+app.use("/products", require("./routes/products"));
 
 app.use(express.static('public')); //using static files
 
-//Link between router folder and server
-app.use(home); 
-app.use(men);
+app.use(home);
+app.use(login);
 app.use(women);
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> b55d85018be1f4ddd5c6e9e0cd40f7d7dd6d004c
 app.listen(80);
-// lmb4200: C:\Users\ASUS> cd C:\Users\ASUS\Desktop\web app\login
-// 
-// C:\Users\ASUS\Desktop\web app\login> cd git clone https://github.com/ofirzvishaboo/web_database.git
-// The filename, directory name, or volume label syntax is incorrect.
-// 
-// C:\Users\ASUS\Desktop\web app\login>
 
-
-
+app.listen(process.env.PORT);
