@@ -1,4 +1,4 @@
-#logo{
+/* #logo{
   height: 90px;
   width: 150px;
 }
@@ -100,13 +100,4 @@ font-size:217%;
 }
 #pic1{
 background-image: url(public\images\women\bar.jpg);
-/* background-size: cover;
-background-position: center;
-background-repeat: no-repeat;  
-z-index: 1; */
-}
-/* .Total{
-position: relative;
-left: 50%;
-top: 100%;  
 } */
