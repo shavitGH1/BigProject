@@ -24,10 +24,14 @@ const Product = new mongoose.Schema({
     enum: ['s', 'm', 'l', 'onesize'],
     required: true
   },
-
-  Image:{
-    type:String,
-    required: false
+  price:{
+    type: String,
+    required: true,
+  }
+  ,
+  image:{
+    type: String,
+    required: true,
   }
 });
 

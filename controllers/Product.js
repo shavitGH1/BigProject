@@ -14,8 +14,8 @@ async function showProducts(req, res) {
 }
 
 async function addProduct(req, res) {
-  const { name, description, gender, company, size } = req.body
-  const addProd = await productService.addProduct(name, description, gender, company, size);
+  const { name, description, gender, company, size, price, image } = req.body
+  const addProd = await productService.addProduct(name, description, gender, company, size, price, image);
   if (addProd) {
     res.redirect('/products');
   } else {
@@ -59,8 +59,8 @@ else
 
 //////////////////////////////
 async function updateProd(req, res) {
-  const { _id, name, description, gender, company, size } = req.body
-  const updatedProd = await productService.updateProduct(_id, name, description, gender, company, size);
+  const { _id, name, description, gender, company, size, price, image } = req.body
+  const updatedProd = await productService.updateProduct(_id, name, description, gender, company, size, price, image);
   if (updatedProd) {
     res.redirect(`/products`);
   } else {
