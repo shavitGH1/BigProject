@@ -45,8 +45,12 @@ async function showProduct(req, res) {
 
 //////////////////////////////
 async function showProductByID(req, res) {
-  const { name } = req.params;
-  const product = await productService.getProductByID(name)
+  //const { _id } = req.params;
+  const productId = req.query.name;
+  console.log(productId)
+  const product = await productService.getProduct(productId)
+  console.log(product)
+
   if(product == undefined)
     res.status(404).send("can't find item");
 else
