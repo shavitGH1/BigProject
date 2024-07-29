@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - Sunglasses Shop</title>
+  <link rel="stylesheet" href="/css/cart.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo">Sunglasses Shop</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/products">Products</a></li>
+          <li><a href="/cart">Cart</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <h2>Your Cart</h2>
+      <% if (cart.products.length > 0) { %>
+        <ul class="cart-list">
+          <% cart.products.forEach(item => { %>
+            <li class="cart-item">
+              <img src="<%= item.product.image %>" alt="<%= item.product.name %>">
+              <div class="cart-details">
+                <h3><%= item.product.name %></h3>
+                <p>Size: $<%= item.product.size %></p>
+                <p>Company: $<%= item.product.company %></p>
+                <p>Quantity: <%= item.quantity %></p>
+                <form method="POST" action="/cart/remove">
+                  <input type="hidden" name="productId" value="<%= item.product.productId %>">
+                  <button type="submit" class="btn">Remove</button>
+                </form>
+              </div>
+            </li>
+          <% }) %>
+        </ul>
+        <form method="POST" action="/cart/checkout">
+          <button type="submit" class="btn">Checkout</button>
+        </form>
+      <% } else { %>
+        <p>Your cart is empty.</p>
+      <% } %>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Sunglasses Shop. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -71,7 +71,11 @@
                 <h3><%= womenItems[i].name %></h3>
                 <p><%= womenItems[i].description %></p>
                 <p><%= womenItems[i].price %></p>
-                <button class="add-to-cart-btn">Add To Cart</button>
+                <form class="add-to-cart-form" action="/cart/add" method="POST">
+                  <input type="hidden" name="productId" value="<%= womenItems[i]._id %>">
+                  <input type="hidden" name="userId" value="<%= username %>">
+                  <button type="submit" class="add-to-cart-btn">Add To Cart</button>
+                </form>
                 <a href="/woman?_id=<%= womenItems[i]._id %> ">see me</a>
                
               </article>

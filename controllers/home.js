@@ -15,13 +15,15 @@ function showHomePage(req, res){
 
 async function showMenPage(req, res){
   const menItems = await productService.getMenProducts();
-  res.render("men.ejs",   { menItems });
+  const username = req.session.username;
+  res.render("men.ejs",   { username, menItems });
 }
 
 
 async function showWomenPage(req, res){
     const womenItems = await productService.getwomenProducts();
-    res.render("women.ejs",   { womenItems });
+    const username = req.session.username;
+    res.render("women.ejs",   { username, womenItems });
 }
 
 function showBranchesPage(req, res){

@@ -72,7 +72,11 @@
                   <h3><%= product.name %></h3>
                   <p><%= product.description %></p>
                   <p><%= product.price %></p>
-                  <button class="add-to-cart-btn">Add To Cart</button>
+                  <form class="add-to-cart-form" action="/cart/add" method="POST">
+                    <input type="hidden" name="productId" value="<%= menItems[i]._id %>">
+                    <input type="hidden" name="userId" value="<%= username %>">
+                    <button type="submit" class="add-to-cart-btn">Add To Cart</button>
+                  </form>
                 </article>
                
   

@@ -15,8 +15,9 @@ const homeController = require('../controllers/home');
 
 router.route("/").get(homeController.showHomePage);
 
-router.route("/men").get(homeController.showMenPage);
+// router.get('/men', loginController.isLoggedIn, homeController.showMenPage);
 
+router.route("/men").get(homeController.showMenPage);
 router.route("/women").get(homeController.showWomenPage);
 
 router.route("/logIn").get(homeController.showlogin);
