@@ -17,6 +17,7 @@
         Gender: <%= product.gender %>,
         Company: <%= product.company %>,
         Size: <%= product.size %></p>
+        
         <form action="/products/<%= product.name %>/delete?_method=DELETE" method="post">
             <button type="submit">Delete</button>
         </form>

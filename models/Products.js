@@ -24,6 +24,7 @@ const Product = new mongoose.Schema({
     enum: ['s', 'm', 'l', 'onesize'],
     required: true
   },
+
   Image:{
     type:String,
     required: false
