@@ -10,8 +10,8 @@ function isLoggedIn(req, res, next) {
 async function showCart(req, res) {
   try {
     const cartDetails = await cartService.showCart(req.session.username);
-    console.log(ca)
-    res.render('cart', { username: req.session.username, cart: cartDetails });
+    console.log(cartDetails)
+    res.render('cart', { username: req.session.username, cart: cartDetails.products });
   } catch (err) {
     res.status(500).send(err.message);
   }

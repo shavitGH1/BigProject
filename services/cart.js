@@ -16,13 +16,15 @@ async function showCart(userId) {
       
 
     const detailedProducts = await Promise.all(cart.products.map(async (item) => {
-        const product = await Product.findById(item.productId);
+        const product = await Product.findOne({_id:item.productId});
+        console.log('product', product)
         return {
           product,
           quantity: item.quantity
         };
       }));
-  
+      
+
       return { message: 'Cart details', products: detailedProducts };
     } catch (error) {
       throw new Error('Error fetching cart details: ' + error.message);
@@ -36,9 +38,9 @@ async function AddtoCart(userId, productId) {
         // throw new Error('Invalid user ID or product ID format');
         // }
 
-        // const userObjectId = new mongoose.Types.ObjectId(userId);
-        console.log(userId)
-        console.log(productId)
+        // const userObjectId =new mongoose.Types.ObjectId(userId);
+        // console.log(userId)
+        // console.log(productId)
         const productObjectId = new mongoose.Types.ObjectId(productId);
 
         // Find the cart for the user

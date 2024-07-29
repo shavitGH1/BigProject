@@ -1,6 +1,7 @@
 const Products = require("../models/Products");
+const mongoose = require('mongoose');
 
-async function addProduct(name, description, gender, company, price, image) {
+async function addProduct(name, description, gender, size, company, price, image) {
 
     const product = new Products({
         name,
@@ -45,7 +46,8 @@ async function getProduct(name) {
 }
 /////////////////
 async function getProductByID(id) {
-    const product = await Products.findOne({id})
+    const productObjectId = new mongoose.Types.ObjectId(id);
+    const product = await Products.findOne({_id:productObjectId})
     return product
 }
 /////////////////

@@ -27,11 +27,10 @@
         <ul class="cart-list">
           <% cart.products.forEach(item => { %>
             <li class="cart-item">
-              <img src="<%= item.product.image %>" alt="<%= item.product.name %>">
               <div class="cart-details">
                 <h3><%= item.product.name %></h3>
-                <p>Size: $<%= item.product.size %></p>
-                <p>Company: $<%= item.product.company %></p>
+                <p>Size: <%= item.product.size %></p>
+                <p>Company: <%= item.product.company %></p>
                 <p>Quantity: <%= item.quantity %></p>
                 <form method="POST" action="/cart/remove">
                   <input type="hidden" name="productId" value="<%= item.product.productId %>">
