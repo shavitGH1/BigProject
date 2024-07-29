@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+  <div>
 
+  </div><br>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +12,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
-  <link href="\home.css" rel="stylesheet">
+  
+  
+  <!-- <link href="/branches.css" rel="stylesheet"> -->
+  <link href="\home2.css" rel="stylesheet">
+  <!-- <link href="home.css" rel="stylesheet"> -->
+
 </head>
 
 <body>
@@ -23,15 +30,15 @@
         <a href="/users"><button id="btn_Users" type="button" class="btn btn-outline-secondary">users</button></a>
         <a href="/allProducts"><button id="btn_Products" type="button" class="btn btn-outline-secondary">allProducts</button></a>
       </span>
-    </div>
+    </div><br><br></br><br>
 
     <div class="col-lg-2">  <!-- bouttom: women,men,branches-->
       <div class="input-group mb-4 sh">
 
         <div class="btn-group" role="group" aria-label="Basic outlined example">
-          <a href="/women"><button type="button" class="btn btn-link un-l">Women</button></a>
-          <a href="/men"><button type="button" class="btn btn-link un-l">Men</button></a>
-          <a href="/branches"><button type="button" class="btn btn-link un-l">Branches</button></a>
+          <a href="/women"><button type="button" class="btn un-l">Women</button></a>
+          <a href="/men"><button type="button" class="btn un-l">Men</button></a>
+          <a href="/branches"><button type="button" class="btn un-l">Branches</button></a>
         </div>
       </div>
     </div>
@@ -65,13 +72,58 @@
     <hr>
   </header>
 
+  <div class="container1">
+    <div>
+      <div class="content">
+        <h2>Jane Doe</h2>
+        <span>UI & UX Designer</span>
+      </div>
+    </div>
+    <div>
+      <div class="content">
+        <h2>Alex Smith</h2>
+        <span>CEO Expert</span>
+      </div>
+    </div>
+    <div>
+      <div class="content">
+        <h2>Emily New</h2>
+        <span>Web Designer</span>
+      </div>
+    </div>
+    <div>
+      <div class="content">
+        <h2>Lisa Boley</h2>
+        <span>Marketing Coordinator</span>
+      </div>
+    </div>
+  </div><br><br>
 
-  <main> <!--MISSONS:CHANGE THE PICS-->    
+
+
+  <div class="container">
+    <% for(i=0; i< menItems.length; i++) { %>
+      <div class="card">
+        <article>
+          <img class="pic" src="<%=  menItems[i].image %>" alt="<%= menItems[i].name %>">
+          <h3><%= menItems[i].name %></h3>
+          <p><%= menItems[i].description %></p>
+          <p><%= menItems[i].price %></p>
+          <!-- <button class="add-to-cart-btn">Add To Cart</button>
+          <a href="/woman?_id=<%= menItems[i]._id %>">see me</a> -->
+        </article>
+      </div>
+    <% } %>
+  </div>
+  
+  
+
+<!-- 
+  <main> 
 
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="2000"> <!--this is the timer swap time
-          "lower the num increse the speed of swapping:data-bs-interval="2000" // 2000= 2 secondes  -->
+        <div class="carousel-item active" data-bs-interval="2000"> 
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1Z5uUE3frL0NVyy3SySL7oc1Msyk6gvV4pg&s" class="d-block w-100" alt="1">
         </div>
         <div class="carousel-item" data-bs-interval="2000">
@@ -96,12 +148,14 @@
     <a href="/man?id=3"><img src= images/men/ryan.jpg ></a> 
     <a href="/man?id=2"><img src= images/women/kendel.jpg ></a> 
   </div>
-
+ -->
 
   <hr><!-- LINE-->
+  
+
   <footer>
     <div>
-      <button id="contact" type="button" class="btn btn-link un-l">Contact Us</button>
+      <button id="contact" type="button" class="btn  un-l">Contact Us</button>
       <p>Find us on Facebook</p>
       <p>Find us on instegram</p>
     </div>

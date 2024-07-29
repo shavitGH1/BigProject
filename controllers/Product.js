@@ -14,8 +14,8 @@ async function showProducts(req, res) {
 }
 
 async function addProduct(req, res) {
-  const { name, description, gender, company, size } = req.body
-  const addProd = await productService.addProduct(name, description, gender, company, size);
+  const { name, description, gender, company, size, price, image } = req.body
+  const addProd = await productService.addProduct(name, description, gender, company, size, price, image);
   if (addProd) {
     res.redirect('/products');
   } else {
@@ -45,8 +45,12 @@ async function showProduct(req, res) {
 
 //////////////////////////////
 async function showProductByID(req, res) {
-  const { name } = req.params;
-  const product = await productService.getProductByID(name)
+  //const { _id } = req.params;
+  const productId = req.query.name;
+  console.log(productId)
+  const product = await productService.getProduct(productId)
+  console.log(product)
+
   if(product == undefined)
     res.status(404).send("can't find item");
 else
@@ -55,8 +59,8 @@ else
 
 //////////////////////////////
 async function updateProd(req, res) {
-  const { _id, name, description, gender, company, size } = req.body
-  const updatedProd = await productService.updateProduct(_id, name, description, gender, company, size);
+  const { _id, name, description, gender, company, size, price, image } = req.body
+  const updatedProd = await productService.updateProduct(_id, name, description, gender, company, size, price, image);
   if (updatedProd) {
     res.redirect(`/products`);
   } else {

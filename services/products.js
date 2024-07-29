@@ -1,23 +1,25 @@
 const Products = require("../models/Products");
 
-async function addProduct(name, description, gender, company, size) {
+async function addProduct(name, description, gender, company, price, image) {
 
     const product = new Products({
         name,
         description,
         gender,
         company,
-        size
+        size,
+        price,
+        image
     });
 
     const savingProduct = await product.save()
     return savingProduct
 }
 
-async function updateProduct(_id, name, description, gender, company, size) {
+async function updateProduct(_id, name, description, gender, company, size, price, image) {
     const updatedProduct = await Products.findOneAndUpdate(
         {_id},
-        { name, description, gender, company, size },
+        { name, description, gender, company, size, price, image },
       );
     return updatedProduct.name
 }

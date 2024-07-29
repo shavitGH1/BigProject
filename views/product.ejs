@@ -17,6 +17,9 @@
         Gender: <%= product.gender %>,
         Company: <%= product.company %>,
         Size: <%= product.size %></p>
+        price: <%= product.price %></p>
+        image:<img class="pic" src="<%=  product.image %>" alt="<%= product.name %>">
+        
         <form action="/products/<%= product.name %>/delete?_method=DELETE" method="post">
             <button type="submit">Delete</button>
         </form>
@@ -30,6 +33,8 @@
             <input name="gender" placeholder="gender: men, women, unisex">
             <input name="company" placeholder="company">
             <input name="size" placeholder="size: s, m, l">
+            <input name="price" placeholder="price">
+            <input name="image" placeholder="image">
             <button type="submit">Edit</button>
         </form>
     <% } %>

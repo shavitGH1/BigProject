@@ -4,31 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User List</title>
+    <link href="users.css" rel="stylesheet">
 </head>
 <body>
-    <h7>Search</h7>
-    <form action="/users/search" method="post">
-        <input type="text" name="username" placeholder="Search by Name">
-        <button type="submit">Search</button>
-    </form>
-    <form action="/users" method="post">
-        <input name="username">
-        <input name="password" type="password">
-        <button type="submit">Add user</button>
-    </form>
-    <% if (users && users.length) { %>
-        <% users.forEach(function(user) { %>
-            <div>
-                <p>Username: <%= user._id %></p>
-                <p>Password: <%= user.password %></p>
-                <form action="/users/<%= user._id %>?_method=DELETE" method="post">
-                    <button type="submit">Delete</button>
-                </form>
-                <hr>
-            </div>
-        <% }) %>
-    <% } else { %>
-        <p>No users found.</p>
-    <% } %>
+    <div class="card">
+        <div class="card-info">
+        <p class="title"> <h7>Search</h7>
+            <form action="/users/search" method="post">
+                <!-- <button type="submit">Search</button> -->
+                <input type="text" name="username" placeholder="Search by Name">
+                
+            </form>
+            <form action="/users" method="post">
+                <input name="username">
+                <button type="submit">Add user</button>
+                <input name="password" type="password">
+               
+            </form>
+            <% if (users && users.length) { %>
+                <% users.forEach(function(user) { %>
+                    <div>
+                        <p>Username: <%= user._id %></p>
+                        <p>Password: <%= user.password %></p>
+                        <form action="/users/<%= user._id %>?_method=DELETE" method="post">
+                            <button type="submit">Delete</button>
+                        </form>
+                        <hr>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p>No users found.</p>
+            <% } %></p>
+        </div>
+    </div>
+        </div>
 </body>
 </html>
+
+
+
+  

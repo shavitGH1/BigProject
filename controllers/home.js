@@ -9,8 +9,10 @@ const productService = require("../services/products");
 const loginService = require("../services/login");
 const graphModels = require ('../models/graph')
 
-function showHomePage(req, res){ 
-    res.render("home.ejs");
+async function showHomePage(req, res){
+    const womenItems = await productService.getwomenProducts();
+    const menItems = await productService.getMenProducts();
+    res.render("home.ejs", {menItems });
 }
 
 async function showMenPage(req, res){
