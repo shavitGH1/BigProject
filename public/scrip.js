@@ -4,3 +4,7 @@ contact.addEventListener("click" ,() => {
     window.location.href="/branches"
     console.log("click")
 })
+
+document.getElementById("graph").addEventListener("click", () => {
+    window.location.href="/graph";
+})

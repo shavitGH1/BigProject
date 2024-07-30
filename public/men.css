@@ -86,7 +86,11 @@
     border: 1px solid #ffcaa6;
     background-color: #ffcaa6;
    }
-   
+ 
+.getLine{
+    display: flex;
+  flex-direction: column;
+  }  
 /* .container {
     max-width: 800px;
     margin: 0 auto;
