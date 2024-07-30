@@ -18,7 +18,7 @@
         Company: <%= product.company %>,
         Size: <%= product.size %></p>
         price: <%= product.price %></p>
-        image:<img class="pic" src="<%=  product.image %>" alt="<%= product.name %>">
+         image:<img class="pic" src="<%=  product.image %>" alt="<%= product.name %>"> 
         
         <form action="/products/<%= product.name %>/delete?_method=DELETE" method="post">
             <button type="submit">Delete</button>

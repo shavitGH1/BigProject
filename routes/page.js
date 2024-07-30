@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 //////
+const womenController = require('../controllers/Product');
 const loginController  = require("../controllers/login");
 const productsController  = require("../controllers/Product");
 //router.route("/allProducts").get(productsController.showProducts);
@@ -16,6 +17,7 @@ const homeController = require('../controllers/home');
 router.route("/").get(homeController.showHomePage);
 
 // router.get('/men', loginController.isLoggedIn, homeController.showMenPage);
+router.route('/man').get(womenController.showMenProductByID)
 
 router.route("/men").get(homeController.showMenPage);
 router.route("/women").get(homeController.showWomenPage);

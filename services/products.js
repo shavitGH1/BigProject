@@ -1,7 +1,7 @@
 const Products = require("../models/Products");
 const mongoose = require('mongoose');
 
-async function addProduct(name, description, gender, size, company, price, image) {
+async function addProduct(name, description, gender, company, size, price=0 , image='smt') {
 
     const product = new Products({
         name,

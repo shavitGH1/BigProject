@@ -14,14 +14,23 @@ async function showProducts(req, res) {
 }
 
 async function addProduct(req, res) {
-  const { name, description, gender, company, size, price, image } = req.body
-  const addProd = await productService.addProduct(name, description, gender, company, size, price, image);
-  if (addProd) {
-    res.redirect('/products');
-  } else {
-    res.status(400).send("Failed to add product");
+  const { name, description, gender, company, size, price, image  } = req.body;
+
+  try {
+    // Call addProduct with all parameters including default value for image
+    const addProd = await productService.addProduct(name, description, gender, company, size, price);
+    
+    if (addProd) {
+      res.redirect('/products');
+    } else {
+      res.status(400).send("Failed to add product");
+    }
+  } catch (error) {
+    console.error("Error adding product:", error);
+    res.status(500).send("Internal Server Error");
   }
-};
+}
+
 
 async function delProd(req, res) {
   if (req.query._method === 'DELETE') {
@@ -56,6 +65,21 @@ async function showProductByID(req, res) {
 else
     res.render("woman.ejs", { username, product});
 }
+
+
+async function showMenProductByID(req, res) {
+  //const { _id } = req.params;
+  const productId = req.query.name;
+  console.log(productId)
+  const product = await productService.getProduct(productId)
+  console.log(product)
+  const username = req.session.username
+  if(product == undefined)
+    res.status(404).send("can't find item");
+else
+    res.render("man.ejs", { username, product});
+}
+
 
 //////////////////////////////
 async function updateProd(req, res) {
@@ -125,5 +149,6 @@ module.exports = {
   updateProd,
   searchProducts,
   showProductByID,
-  searchProduct
+  searchProduct,
+  showMenProductByID
 }

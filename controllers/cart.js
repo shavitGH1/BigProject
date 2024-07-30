@@ -11,8 +11,9 @@ async function showCart(req, res) {
   try {
     const cartDetails = await cartService.showCart(req.session.username);
     console.log(cartDetails)
-    res.render('cart', { username: req.session.username, cart: cartDetails.products });
+    res.render('cart', { username: req.session.username, cart: cartDetails });
   } catch (err) {
+  // {console.log("hello");
     res.status(500).send(err.message);
   }
 }

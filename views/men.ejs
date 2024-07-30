@@ -81,7 +81,7 @@
           </svg>
         </div>
       </div>
-      <a href="/woman?name=<%= menItems[i].name %> ">see me</a>
+      <a href="/man?name=<%= menItems[i].name %> ">see me</a>
     </div>
     <% } %>
   </div>
@@ -91,20 +91,7 @@
       <div class="container">
         <div id="product-list" class="product-list">KK
             <!-- Product items will be dynamically added here -->
-             <% for(i=0; i< menItems.length; i++) { %>
-              <article>
-                <img class="pic" src="<%=  menItems[i].image %>" alt="<%= menItems[i].name %>">
-                <h3><%= menItems[i].name %></h3>
-                <p><%= menItems[i].description %></p>
-                <p><%= menItems[i].price %></p>
-                <form class="add-to-cart-form" action="/cart/add" method="POST">
-                  <input type="hidden" name="productId" value="<%= menItems[i]._id %>">
-                  <input type="hidden" name="userId" value="<%= username %>">
-                  <button type="submit" class="add-to-cart-btn">Add To Cart</button>
-                </form>
-                <a href="/woman?_id=<%= menItems[i]._id %> ">see me</a>
-              </article>
-              <% } %>   
+                
 
         </div>
     </div>
