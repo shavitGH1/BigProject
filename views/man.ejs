@@ -67,8 +67,8 @@
           <div id="product-list" class="product-list">
               <!-- Product items will be dynamically added here -->
               
-                <article>
-                  <img class="pic" src="<%=  product.image %>" alt="<%= product.name %>">
+                <article class="proporcional1">
+                  <img class="proporcional" src="<%=  product.image %>" alt="<%= product.name %>"><br><br><br><br><br><br><br><br><br><br><br><br><br>
                   <h3><%= product.name %></h3>
                   <p><%= product.description %></p>
                   <p><%= product.price %></p>
@@ -85,11 +85,12 @@
       </main>
 
     <hr>  
-    <footer>
-      <div>
-        <button type="button" class="btn btn-link un-l">Contact Us</button>
-        <p>Find us on Facebook</p>
-        <button><i class="bi bi-facebook"></i></button>
+    <footer><!-- DOWN OF THE PAGE -->
+      <div class="getLine">
+        <button id="contact" type="button" class="btn un-l">Contact Us</button>
+        <!-- <button type="button" class="btn btn-link un-l">Contact Us</button> -->
+        <button type="button" class="btn un-l">Find us on Facebook</button>
+        <button id="graph" type="button" class="btn un-l">about us</button>
       </div>
     </footer>
   
@@ -102,5 +103,6 @@
         crossorigin="anonymous"></script>
 
 </body>
-
+<script src="home.js"></script>
+<script src="/scrip.js"></script>  
 </html>
