@@ -34,5 +34,9 @@ router.route("/graph").get(homeController.showGraph);
 
 router.post('/searchedProducts', productsController.searchProduct);
 
+// Route to handle saving purchases
+router.post('/allPurchases', homeController.savePurchase);
 
+// Route to handle fetching and displaying purchases
+router.get('/allPurchases', loginController.isAdmin, homeController.getPurchases);
 module.exports = router;

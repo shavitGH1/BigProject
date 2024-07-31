@@ -53,8 +53,9 @@ function showlogin(req, res){
 }
 
 function showcart(req, res){
-    const cartItems = cartModels.getCart();
-    res.render("cart.ejs",   { cartItems });
+   /* const cartItems = cartModels.getCart();
+    res.render("cart.ejs",   { cartItems });*/
+    res.render("cart.ejs");
 }
 
 
@@ -76,7 +77,39 @@ async function showGraph(req, res){
  }
 
 
+ const Purchase = require('../models/Cart');
+
+ // Handle saving the purchase
+ const savePurchase = async (req, res) => {
+
+     try {
+         const { items, total } = req.body;
+ 
+         const newPurchase = new Purchase({ items, total });
+         await newPurchase.save();
+ 
+         res.status(200).send('Purchase saved successfully');
+     } catch (error) {
+         console.error(error);
+         res.status(500).send('Error saving purchase');
+     }
+ };
+ 
+ // Handle fetching and displaying purchases
+ const getPurchases = async (req, res) => {
+     try {
+         const allPurchases = await Purchase.find(); // Fetch all purchases
+         res.render('allPurchases', { username: req.session.username, allPurchases })
+     } catch (error) {
+         console.error(error);
+         res.status(500).send('Error fetching purchases');
+     }
+ };
 
 
-module.exports = {showHomePage, showMenPage, showBranchesPage, showsignup, showlogin, showWomenPage, showcart, showGraph};
+
+module.exports = {showHomePage, showMenPage, showBranchesPage, showsignup, showlogin, showWomenPage, showcart, showGraph,
+    savePurchase,
+    getPurchases
+};
 

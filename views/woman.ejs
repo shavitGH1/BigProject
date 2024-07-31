@@ -63,9 +63,9 @@
    
     
       <main>
-        <div class="container">
+        <!--<div class="container">
           <div id="product-list" class="product-list">
-              <!-- Product items will be dynamically added here -->
+               Product items will be dynamically added here
              
                 <article class="proporcional1">
                   <img class="proporcional" src="<%=  product.image %>" alt="<%= product.name %>"><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -81,7 +81,25 @@
                
   
           </div>
-      </div>
+      </div> -->
+
+      <div class="container">
+        <div id="product-list" class="product-list">
+            <!-- Product items will be dynamically added here -->
+           
+              <article class="proporcional1">
+                <img class="proporcional" src="<%=  product.image %>" alt="<%= product.name %>"><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <h3><%= product.name %></h3>
+                <p><%= product.price %></p>
+                <p><%= product.description %></p>
+                <button class="add-to-cart-btn">Add To Cart</button>
+
+                </form>
+              </article>
+             
+
+        </div>
+    </div>
       </main>
 
     <hr>  
@@ -104,5 +122,6 @@
 
 </body>
 <script src="home.js"></script>
-<script src="/scrip.js"></script>  
+<script src="/scrip.js"></script> 
+<script src="cart.js"></script> 
 </html>

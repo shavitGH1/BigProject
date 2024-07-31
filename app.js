@@ -18,12 +18,12 @@ app.use(session({
 const home = require('./routes/page');
 const login = require('./routes/login');
 const women = require('./routes/women');
-const cart = require('./routes/cart');
+//const cart = require('./routes/cart');
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 app.use("/products", require("./routes/products"));
-app.use('/cart', cart);
+//app.use('/cart', cart);
 
 app.use(express.static('public')); // using static files
 
