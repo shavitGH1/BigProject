@@ -68,14 +68,18 @@
   <div class="container">
     <% for(i=0; i< womenItems.length; i++) { %>
       <div class="card">
-        <img src="<%=  womenItems.image %>" alt="<%= womenItems.name %>">
+        <div class="card-img"><img class="img" src="<%=  womenItems[i].image %>" alt="<%= womenItems[i].name %>"></div>
         <div class="card-info">
+          <div>
+            <br><br>
+          </div>
           <p class="text-title">
             <%=womenItems[i].name%>
           </p>
-          <p class="text-body">
+          
+          <!-- <p class="text-body">
             <%=womenItems[i].description%>
-          </p>
+          </p> -->
         </div>
         <div class="card-footer">
           <span class="text-title">
