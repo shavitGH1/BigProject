@@ -32,9 +32,14 @@
     <% if (allProducts && allProducts.length) { %>
         <% allProducts.forEach(function(product) { %>
             <div>
+                <img src="<%=  product.image %>" alt="<%= product.name %>">
+
                 <p id="<%= product.name %>">
                 Name: <%= product.name %>,
                 Description: <%= product.description %>,
+                Gender: <%= product.gender %>,
+                Size: <%= product.size %>,
+                Price: <%= product.price %>
                 </p>
                 <form action="/products/<%= product.name %>" method="get">
                     <button type="submit">Show more</button>
