@@ -41,5 +41,9 @@ async function searchUsers(query) {
     return users
 }
 
+async function getNumUsers() {
+    const users = await User.find({});
+    return users.length;
+}
 
-module.exports = { login, register, searchUsers, getUsers, deleteUser, aAddUser}
+module.exports = { login, register, searchUsers, getUsers, deleteUser, aAddUser, getNumUsers}

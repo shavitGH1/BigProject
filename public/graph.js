@@ -1,58 +1,214 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Set the dimensions and margins of the graph
-  var margin = {top: 10, right: 30, bottom: 30, left: 40},
-      width = 460 - margin.left - margin.right,
-      height = 400 - margin.top - margin.bottom;
+document.addEventListener('DOMContentLoaded', (event) => {
+  createPieChart1();
+});
 
-  // Append the svg object to the div called 'orders'
-  var svg = d3.select("#orders")
-    .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-  // Create dummy data
-  var data = [30, 80, 45, 60, 20];
-
-  // Create the bars
-  svg.selectAll("rect")
-    .data(data)
-    .enter()
-    .append("rect")
-      .attr("x", function(d, i) { return i * 70; })
-      .attr("y", function(d) { return height - d; })
-      .attr("width", 65)
-      .attr("height", function(d) { return d; })
-      .attr("fill", "#69b3a2");
+document.addEventListener('DOMContentLoaded', (event) => {
+  createPieChart2();
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Set the dimensions and margins of the graph
-  var margin = {top: 10, right: 30, bottom: 30, left: 40},
-      width = 460 - margin.left - margin.right,
-      height = 400 - margin.top - margin.bottom;
 
-  // Append the svg object to the div called 'total'
-  var svg = d3.select("#total")
+
+
+
+function createPieChart1() {//men-women function
+
+// set the dimensions and margins of the graph
+var width = 450
+    height = 450
+    margin = 40
+
+// The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
+var radius = Math.min(width, height) / 2 - margin
+
+// append the svg object to the div called 'my_dataviz'
+var svg = d3.select("#men-women")
+  .append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+    // Get the element by its ID
+const women = document.getElementById('numOfWomenProd');
+const men = document.getElementById('numOfMenProd');
+
+// Read and parse the number from the element's text content
+const numberWomen = parseFloat(women.textContent);
+const numbermen = parseFloat(men.textContent);
+console.log(numberWomen)
+console.log(numbermen)
+    var data = {women: numberWomen ,men: numbermen}
+  
+
+// set the color scale
+var color = d3.scaleOrdinal()
+  .domain(["a", "b"])
+  .range(d3.schemeDark2);
+
+// Compute the position of each group on the pie:
+var pie = d3.pie()
+  .sort(null) // Do not sort group by size
+  .value(function(d) {return d.value; })
+var data_ready = pie(d3.entries(data))
+
+// The arc generator
+var arc = d3.arc()
+  .innerRadius(radius * 0.5)         // This is the size of the donut hole
+  .outerRadius(radius * 0.8)
+
+// Another arc that won't be drawn. Just for labels positioning
+var outerArc = d3.arc()
+  .innerRadius(radius * 0.9)
+  .outerRadius(radius * 0.9)
+
+// Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+svg
+  .selectAll('allSlices')
+  .data(data_ready)
+  .enter()
+  .append('path')
+  .attr('d', arc)
+  .attr('fill', function(d){ return(color(d.data.key)) })
+  .attr("stroke", "white")
+  .style("stroke-width", "2px")
+  .style("opacity", 0.7)
+
+// Add the polylines between chart and labels:
+svg
+  .selectAll('allPolylines')
+  .data(data_ready)
+  .enter()
+  .append('polyline')
+    .attr("stroke", "black")
+    .style("fill", "none")
+    .attr("stroke-width", 1)
+    .attr('points', function(d) {
+      var posA = arc.centroid(d) // line insertion in the slice
+      var posB = outerArc.centroid(d) // line break: we use the other arc generator that has been built only for that
+      var posC = outerArc.centroid(d); // Label position = almost the same as posB
+      var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2 // we need the angle to see if the X position will be at the extreme right or extreme left
+      posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1); // multiply by 1 or -1 to put it on the right or on the left
+      return [posA, posB, posC]
+    })
+
+// Add the polylines between chart and labels:
+svg
+  .selectAll('allLabels')
+  .data(data_ready)
+  .enter()
+  .append('text')
+    .text( function(d) { console.log(d.data.key) ; return d.data.key } )
+    .attr('transform', function(d) {
+        var pos = outerArc.centroid(d);
+        var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+        pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
+        return 'translate(' + pos + ')';
+    })
+    .style('text-anchor', function(d) {
+        var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+        return (midangle < Math.PI ? 'start' : 'end')
+    })
+  }
+
+
+
+
+  
+function createPieChart2() {//users function
+
+  // set the dimensions and margins of the graph
+  var width = 450
+      height = 450
+      margin = 40
+  
+  // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
+  var radius = Math.min(width, height) / 2 - margin
+  
+  // append the svg object to the div called 'my_dataviz'
+  var svg = d3.select("#users")
     .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
+      .attr("width", width)
+      .attr("height", height)
     .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-  // Create dummy data
-  var data = [30, 80, 45, 60, 20];
-
-  // Create the bars
-  svg.selectAll("rect")
-    .data(data)
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+  
+      // Get the element by its ID
+  const users = document.getElementById('numOfUsers');
+  
+  // Read and parse the number from the element's text content
+  const numberusers = parseFloat(users.textContent);
+  console.log(numberusers)
+      var data = {user_number: numberusers}
+    
+  
+  // set the color scale
+  var color = d3.scaleOrdinal()
+    .domain(["a", "b"])
+    .range(d3.schemeDark2);
+  
+  // Compute the position of each group on the pie:
+  var pie = d3.pie()
+    .sort(null) // Do not sort group by size
+    .value(function(d) {return d.value; })
+  var data_ready = pie(d3.entries(data))
+  
+  // The arc generator
+  var arc = d3.arc()
+    .innerRadius(radius * 0.5)         // This is the size of the donut hole
+    .outerRadius(radius * 0.8)
+  
+  // Another arc that won't be drawn. Just for labels positioning
+  var outerArc = d3.arc()
+    .innerRadius(radius * 0.9)
+    .outerRadius(radius * 0.9)
+  
+  // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+  svg
+    .selectAll('allSlices')
+    .data(data_ready)
     .enter()
-    .append("rect")
-      .attr("x", function(d, i) { return i * 70; })
-      .attr("y", function(d) { return height - d; })
-      .attr("width", 65)
-      .attr("height", function(d) { return d; })
-      .attr("fill", "#69b3a2");
-});
+    .append('path')
+    .attr('d', arc)
+    .attr('fill', function(d){ return(color(d.data.key)) })
+    .attr("stroke", "white")
+    .style("stroke-width", "2px")
+    .style("opacity", 0.7)
+  
+  // Add the polylines between chart and labels:
+  svg
+    .selectAll('allPolylines')
+    .data(data_ready)
+    .enter()
+    .append('polyline')
+      .attr("stroke", "black")
+      .style("fill", "none")
+      .attr("stroke-width", 1)
+      .attr('points', function(d) {
+        var posA = arc.centroid(d) // line insertion in the slice
+        var posB = outerArc.centroid(d) // line break: we use the other arc generator that has been built only for that
+        var posC = outerArc.centroid(d); // Label position = almost the same as posB
+        var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2 // we need the angle to see if the X position will be at the extreme right or extreme left
+        posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1); // multiply by 1 or -1 to put it on the right or on the left
+        return [posA, posB, posC]
+      })
+  
+  // Add the polylines between chart and labels:
+  svg
+    .selectAll('allLabels')
+    .data(data_ready)
+    .enter()
+    .append('text')
+      .text( function(d) { console.log(d.data.key) ; return d.data.key } )
+      .attr('transform', function(d) {
+          var pos = outerArc.centroid(d);
+          var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+          pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
+          return 'translate(' + pos + ')';
+      })
+      .style('text-anchor', function(d) {
+          var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+          return (midangle < Math.PI ? 'start' : 'end')
+      })
+    }
+  

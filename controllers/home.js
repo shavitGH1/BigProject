@@ -7,7 +7,7 @@ const graphModels = require ('../models/graph')*/
 //**********************************************************************************//
 const productService = require("../services/products");
 const loginService = require("../services/login");
-const graphModels = require ('../models/graph')
+//const graphModels = require ('../models/graph')
 
 async function showHomePage(req, res){
     const womenItems = await productService.getwomenProducts();
@@ -58,12 +58,22 @@ function showcart(req, res){
 }
 
 
-function showGraph(req, res){
-    const graph = graphModels.getData();
-    res.render("graph.ejs",   { graph });
- // res.render("graph.ejs");
 
-}
+async function showGraph(req, res){
+    
+     const graph =await  productService.getMenProducts();
+     const graph2 =await  productService.getwomenProducts();
+     res1 = graph.length;
+     res2 = graph2.length;
+     const users = await loginService.getNumUsers();
+ 
+     console.log(res1)
+     console.log(res2)
+     res.render("graph.ejs",   {res1, res2, users });
+ 
+  // res.render("graph.ejs");
+ 
+ }
 
 
 

@@ -16,6 +16,7 @@
   
   <!-- <link href="/branches.css" rel="stylesheet"> -->
   <link href="\home2.css" rel="stylesheet">
+  <link href="men.css" rel="stylesheet">
   <!-- <link href="home.css" rel="stylesheet"> -->
 
 </head>
@@ -99,22 +100,29 @@
     </div>
   </div><br><br>
 
+<% for(i=0; i< menItems.length; i++) { %>
+  <div class="card">
+    <div class="card-image"><img class="nadav" src="<%= menItems[i].image %>" alt="<%= menItems[i].image %>"></div>
+    <div class="category"> <%= menItems[i].name %> </div>
+    <div class="heading"><%= menItems[i].description %>
+        <div class="author"> price: <span class="name"><%= menItems[i].price %></span></div>
+    </div>
+</div>
+<% } %>
 
-
+<!-- 
   <div class="container">
     <% for(i=0; i< menItems.length; i++) { %>
       <div class="card">
-        <article>
-          <img class="pic" src="<%=  menItems[i].image %>" alt="<%= menItems[i].name %>">
+        <article class="proporciona1">
+          <img class="proporciona" src="<%=  menItems[i].image %>" alt="<%= menItems[i].name %>">
           <h3><%= menItems[i].name %></h3>
           <p><%= menItems[i].description %></p>
           <p><%= menItems[i].price %></p>
-          <!-- <button class="add-to-cart-btn">Add To Cart</button>
-          <a href="/woman?_id=<%= menItems[i]._id %>">see me</a> -->
         </article>
       </div>
     <% } %>
-  </div>
+  </div> -->
   
   
 
@@ -154,11 +162,14 @@
   
 
   <footer>
-    <div>
-      <button id="contact" type="button" class="btn  un-l">Contact Us</button>
-      <p>Find us on Facebook</p>
-      <p>Find us on instegram</p>
-    </div>
+    <footer><!-- DOWN OF THE PAGE -->
+      <div class="getLine">
+        <button id="contact" type="button" class="btn un-l">Contact Us</button>
+        <!-- <button type="button" class="btn btn-link un-l">Contact Us</button> -->
+        <button type="button" class="btn un-l">Find us on Facebook</button>
+        <button id="graph" type="button" class="btn un-l">about us</button>
+      </div>
+    </footer>
   </footer>
 
 
