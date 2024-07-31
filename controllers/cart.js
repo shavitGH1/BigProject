@@ -32,9 +32,10 @@ async function addToCart(req, res) {
 
 async function removeFromCart(req, res) {
   try {
+    const username = req.session.username ;
     const { productId } = req.body;
-    const updatedCart = await cartService.removeFromCart(req.user._id, productId);
-    res.redirect('/cart');
+    const updatedCart = await cartService.removeFromCart(username, productId);
+    res.render('cart', { username: req.session.username, cart: updatedCart });
   } catch (err) {
     res.status(500).send(err.message);
   }

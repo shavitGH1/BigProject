@@ -66,23 +66,37 @@ async function AddtoCart(userId, productId) {
   
   
 
-
-
-
 async function removeFromCart(userId, productId) {
   try {
-    const cart = await Cart.findOne({ userId });
-
+    const productObjectId = new mongoose.Types.ObjectId(productId);
+    const cart = await Cart.findOne({ _id: userId });
+    console.log(cart)
     if (cart) {
-      cart.products = cart.products.filter(p => p.productId.toString() !== productId);
+      cart.products = await cart.products.filter(p => p.productId.toString() !== productObjectId.toString());
       await cart.save();
     }
 
     return cart;
   } catch (error) {
-    throw new Error('Error removing product from cart: ' + error.message);
+    throw new Error('Error removing product from cart: ' + error.message);    
   }
 }
+
+
+// async function removeFromCart(userId, productId) {
+//   try {
+//     const cart = await Cart.findOne({ userId });
+
+//     if (cart) {
+//       cart.products = cart.products.filter(p => p.productId.toString() !== productId);
+//       await cart.save();
+//     }
+
+//     return cart;
+//   } catch (error) {
+//     throw new Error('Error removing product from cart: ' + error.message);
+//   }
+// }
 
 async function placeOrder(userId) {
   try {

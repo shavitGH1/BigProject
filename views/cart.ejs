@@ -33,7 +33,7 @@
                 <p>Company: <%= item.product.company %></p>
                 <p>Quantity: <%= item.quantity %></p>
                 <form method="POST" action="/cart/remove">
-                  <input type="hidden" name="productId" value="<%= item.product.productId %>">
+                  <input type="hidden" name="productId" value="<%= item.product._Id %>">
                   <button type="submit" class="btn">Remove</button>
                 </form>
               </div>
