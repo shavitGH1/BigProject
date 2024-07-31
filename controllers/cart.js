@@ -34,7 +34,7 @@ async function removeFromCart(req, res) {
   try {
     const username = req.session.username ;
     const { productId } = req.body;
-    const updatedCart = await cartService.removeFromCart(username, productId);
+    const updatedCart = await cartService.removeFromCart(username, productId);q
     res.render('cart', { username: req.session.username, cart: updatedCart });
   } catch (err) {
     res.status(500).send(err.message);
