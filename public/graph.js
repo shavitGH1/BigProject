@@ -38,7 +38,7 @@ const numberWomen = parseFloat(women.textContent);
 const numbermen = parseFloat(men.textContent);
 console.log(numberWomen)
 console.log(numbermen)
-    var data = {women: numberWomen ,men: numbermen}
+    var data = {גברים: numbermen, נשים: numberWomen}
   
 
 // set the color scale
@@ -139,7 +139,7 @@ function createPieChart2() {//users function
   // Read and parse the number from the element's text content
   const numberusers = parseFloat(users.textContent);
   console.log(numberusers)
-      var data = {user_number: numberusers}
+      var data = {חברים: numberusers}
     
   
   // set the color scale
