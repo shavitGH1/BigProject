@@ -124,7 +124,7 @@
     flex: 0 0 120px;
     border-radius: 0.5rem;
     transition: 0.5s ease-in-out;
-    cursor: pointer;
+    /* cursor: pointer; */
     box-shadow: 1px 5px 15px #1e0e3e;
     position: relative;
     overflow: hidden;
@@ -185,4 +185,19 @@
       visibility: visible;
     }
   }
+}
+.champ{
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+}
+.menButton{
+  border: none;
+  background: none;
+  font-size: 120%;
+}
+.womenButton{
+  border: none;
+  background: none;
+  font-size: 120%;
 }
