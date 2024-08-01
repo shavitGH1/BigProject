@@ -1,3 +1,5 @@
+
+
 // Function to get the cart from local storage
 function getCart() {
     const cart = localStorage.getItem('cart');
@@ -11,44 +13,45 @@ function saveCart(cart) {
 
 // Function to handle the "Add to Cart" button click
 function handleAddToCart(event) {
-    // Check if the clicked element is a button
     if (event.target && event.target.classList.contains('add-to-cart-btn')) {
-        // Find the parent article element to get product details
         const article = event.target.closest('article');
         const productName = article.querySelector('h3').textContent;
         const productPrice = article.querySelector('p').textContent;
         const productImage = article.querySelector('img').src;
 
-        // Create a product object
         const product = {
             name: productName,
             price: productPrice,
             image: productImage
         };
 
-        // Add the product to the cart
         let cart = getCart();
         cart.push(product);
         saveCart(cart);
     }
 }
 
-// Attach the event listener to the document to handle clicks on "Add to Cart" buttons
-document.addEventListener('click', handleAddToCart);
+// Function to handle the "Remove" button click
+function handleRemoveFromCart(event) {
+    if (event.target && event.target.classList.contains('remove-item-btn')) {
+        const index = event.target.getAttribute('data-index');
+        let cart = getCart();
+        cart.splice(index, 1);
+        saveCart(cart);
+        displayCart();
+    }
+}
 
-
-
+// Function to display the cart
 function displayCart() {
     const cartItemsContainer = document.getElementById('cart-items');
     const cartTotal = document.getElementById('cart-total');
     const cart = getCart();
 
     let total = 0;
-
-    // Clear existing items
     cartItemsContainer.innerHTML = '';
 
-    cart.forEach(item => {
+    cart.forEach((item, index) => {
         const itemElement = document.createElement('div');
         itemElement.className = 'cart-item';
         itemElement.innerHTML = `
@@ -57,50 +60,30 @@ function displayCart() {
                 <h4>${item.name}</h4>
                 <p>${item.price}</p>
             </div>
+            <button class="remove-item-btn" data-index="${index}">Remove</button>
         `;
         cartItemsContainer.appendChild(itemElement);
 
         const priceText = item.price.replace(/[^0-9.-]+/g, ""); // Remove non-numeric characters
         const price = parseFloat(priceText);
-        
 
         if (!isNaN(price)) {
             total += price;
         }
-       
     });
 
     cartTotal.textContent = `Total: $${total.toFixed(2)}`;
 }
 
-// Run the displayCart function when the page loads
-document.addEventListener('DOMContentLoaded', displayCart);
-
-
+// Function to clear the cart
 function clearCart() {
     localStorage.removeItem('cart');
-    displayCart();  // Update the cart display
+    displayCart();
 }
-
-/* Function to handle the "Buy" button click !!!!!!!!!!!!!!!!!!!!!!!!!!NO SAVING!!!!!!!!!!!!!!!!!!!!!!!!!!!
-function handleBuyButtonClick() {
-    // Perform any necessary actions (e.g., complete purchase)
-    alert('Thank you for your purchase!');
-    
-    // Clear the cart
-    clearCart();
-}*/
-
-
-
-
 
 // Function to handle the "Buy" button click
 function handleBuyButtonClick() {
-    // Perform any necessary actions (e.g., complete purchase)
     alert('Thank you for your purchase!');
-    
-    // Prepare purchase data
     const cart = getCart();
     const total = cart.reduce((acc, item) => acc + parseFloat(item.price.replace(/[^0-9.-]+/g, "")), 0);
     const purchaseData = {
@@ -108,7 +91,6 @@ function handleBuyButtonClick() {
         total: total
     };
 
-    // Send purchase data to the server
     fetch('/allPurchases', {
         method: 'POST',
         headers: {
@@ -119,7 +101,6 @@ function handleBuyButtonClick() {
     .then(response => response.text())
     .then(data => {
         console.log(data);
-        // Clear the cart after saving purchase
         clearCart();
     })
     .catch((error) => {
@@ -127,6 +108,8 @@ function handleBuyButtonClick() {
     });
 }
 
-
-// Attach the event listener to the "Buy" button
+// Attach event listeners
+document.addEventListener('click', handleAddToCart);
+document.addEventListener('click', handleRemoveFromCart);
+document.addEventListener('DOMContentLoaded', displayCart);
 document.getElementById('btn-buy').addEventListener('click', handleBuyButtonClick);
