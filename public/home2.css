@@ -201,3 +201,16 @@
   background: none;
   font-size: 120%;
 }
+#numOfMenProd{
+  color: rgb(230, 220, 201);
+
+}
+#numOfUsers{
+  font-size: 18pt;
+
+}
+
+#numOfWomenProd{
+  color: rgb(230, 220, 201);
+
+}
