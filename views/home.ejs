@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  <div>
+<div>
 
-  </div><br>
+</div><br>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +13,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
-  
-  
+
+
   <!-- <link href="/branches.css" rel="stylesheet"> -->
   <link href="\home2.css" rel="stylesheet">
   <link href="men.css" rel="stylesheet">
@@ -29,11 +30,12 @@
         <a href="/register"><button id="btn_SignUp" type="button" class="btn btn-outline-secondary">Sign up</button></a>
         <a href="/cart"><button id="btn_cart" type="button" class="btn"><i class="bi bi-bag"></i></button></a>
         <a href="/users"><button id="btn_Users" type="button" class="btn btn-outline-secondary">users</button></a>
-        <a href="/allProducts"><button id="btn_Products" type="button" class="btn btn-outline-secondary">allProducts</button></a>
+        <a href="/allProducts"><button id="btn_Products" type="button"
+            class="btn btn-outline-secondary">allProducts</button></a>
       </span>
     </div><br><br></br><br>
 
-    <div class="col-lg-2">  <!-- bouttom: women,men,branches-->
+    <div class="col-lg-2"> <!-- bouttom: women,men,branches-->
       <div class="input-group mb-4 sh">
 
         <div class="btn-group" role="group" aria-label="Basic outlined example">
@@ -43,30 +45,30 @@
         </div>
       </div>
     </div>
- <!-- search opitions -->
- <div class="col-lg-5">
-  <div class="input-group mb-4 sh">
-    <div>
-<form action="/searchedProducts" method="post">
-    <input type="text" class="form-control rounded inline"  name="name" placeholder="Search by Name" aria-label="Recipient's username"
-      aria-describedby="button-addon2">
-   
-</form>
-</div>  
-<div>
-<form action="/searchedProducts" method="post">
-<input type="text" class="form-control rounded inline"  name="name" placeholder="Search by Company" aria-label="Recipient's username"
-      aria-describedby="button-addon2">
-    
-</form>
-</div>
-  </div>
-</div>
-    
+    <!-- search opitions -->
+    <div class="col-lg-5">
+      <div class="input-group mb-4 sh">
+        <div>
+          <form action="/searchedProducts" method="post">
+            <input type="text" class="form-control rounded inline" name="name" placeholder="Search by Name"
+              aria-label="Recipient's username" aria-describedby="button-addon2">
+
+          </form>
+        </div>
+        <div>
+          <form action="/searchedProducts" method="post">
+            <input type="text" class="form-control rounded inline" name="name" placeholder="Search by Company"
+              aria-label="Recipient's username" aria-describedby="button-addon2">
+
+          </form>
+        </div>
+      </div>
+    </div>
 
 
 
-<!--LOGO-->
+
+    <!--LOGO-->
     <div class="col-lg-1 text-end">
       <a href="/"><img id="logo" src="images\LOGO.png" alt="LOGO"></a>
     </div>
@@ -76,41 +78,60 @@
   <div class="container1">
     <div>
       <div class="content">
-        <h2>Jane Doe</h2>
-        <span>UI & UX Designer</span>
+        <h2>rayban</h2>
+        <!-- <span>UI & UX Designer</span> -->
       </div>
     </div>
     <div>
       <div class="content">
-        <h2>Alex Smith</h2>
-        <span>CEO Expert</span>
+        <h2>okloey</h2>
+        <!-- <span>CEO Expert</span> -->
       </div>
     </div>
     <div>
       <div class="content">
-        <h2>Emily New</h2>
-        <span>Web Designer</span>
+        <h2>prada</h2>
+        <!-- <span>Web Designer</span> -->
       </div>
     </div>
     <div>
       <div class="content">
-        <h2>Lisa Boley</h2>
-        <span>Marketing Coordinator</span>
+        <h2>gucci</h2>
+        <!-- <span>Marketing Coordinator</span> -->
       </div>
     </div>
   </div><br><br>
-
-<% for(i=0; i< menItems.length; i++) { %>
-  <div class="card">
-    <div class="card-image"><img class="nadav" src="<%= menItems[i].image %>" alt="<%= menItems[i].image %>"></div>
-    <div class="category"> <%= menItems[i].name %> </div>
-    <div class="heading"><%= menItems[i].description %>
-        <div class="author"> price: <span class="name"><%= menItems[i].price %></span></div>
+  <% for(i=0; i< menItems.length; i++) { %>
+    <div class="card">
+        <div class="card-image"><img class="nadav" src="<%= menItems[i].image %>" alt="<%= menItems[i].image %>"></div>
+        <div class="category">
+            <button class="menButton" data-section="<%= menItems[i].name %>"><%= menItems[i].name %></button> 
+        </div>
+        <div class="heading">
+            <%= menItems[i].description %>
+            <div class="author"> price: <span class="name">
+                <%= menItems[i].price %>
+            </span></div>
+        </div>
     </div>
-</div>
 <% } %>
 
-<!-- 
+<% for(i=0; i< womenItems.length; i++) { %>
+    <div class="card">
+        <div class="card-image"><img class="nadav" src="<%= womenItems[i].image %>" alt="<%= womenItems[i].image %>"></div>
+        <div class="category">
+            <button class="womenButton" data-section="<%= womenItems[i].name %>"><%= womenItems[i].name %></button> 
+        </div>
+        <div class="heading">
+            <%= womenItems[i].description %>
+            <div class="author"> price: <span class="name">
+                <%= womenItems[i].price %>
+            </span></div>
+        </div>
+    </div>
+<% } %>
+
+      <!-- 
   <div class="container">
     <% for(i=0; i< menItems.length; i++) { %>
       <div class="card">
@@ -123,10 +144,10 @@
       </div>
     <% } %>
   </div> -->
-  
-  
 
-<!-- 
+
+
+      <!-- 
   <main> 
 
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
@@ -158,29 +179,29 @@
   </div>
  -->
 
-  <hr><!-- LINE-->
-  
-
-  <footer>
-    <footer><!-- DOWN OF THE PAGE -->
-      <div class="getLine">
-        <button id="contact" type="button" class="btn un-l">Contact Us</button>
-        <!-- <button type="button" class="btn btn-link un-l">Contact Us</button> -->
-        <button type="button" class="btn un-l">Find us on Facebook</button>
-        <button id="graph" type="button" class="btn un-l">about us</button>
-      </div>
-    </footer>
-  </footer>
+      <hr><!-- LINE-->
 
 
-    <script src="home.js"></script>
-    <script src="/scrip.js"></script>  
+      <footer>
+        <footer><!-- DOWN OF THE PAGE -->
+          <div class="getLine">
+            <button id="contact" type="button" class="btn un-l">Contact Us</button>
+            <!-- <button type="button" class="btn btn-link un-l">Contact Us</button> -->
+            <button type="button" class="btn un-l">Find us on Facebook</button>
+            <button id="graph" type="button" class="btn un-l">about us</button>
+          </div>
+        </footer>
+      </footer>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
+
+      <script src="home.js"></script>
+      <script src="/scrip.js"></script>
+
+      <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+      <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
 
 </body>

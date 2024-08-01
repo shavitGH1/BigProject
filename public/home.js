@@ -36,7 +36,4 @@ function showSignup(){
     const pic = document.getElementsByClassName('carousel');
     pic.style.display = 'none';
     logind.style.display = 'block';
-    
-
-
 }

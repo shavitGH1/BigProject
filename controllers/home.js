@@ -12,7 +12,7 @@ const loginService = require("../services/login");
 async function showHomePage(req, res){
     const womenItems = await productService.getwomenProducts();
     const menItems = await productService.getMenProducts();
-    res.render("home.ejs", {menItems });
+    res.render("home.ejs", {menItems,womenItems });
 }
 
 async function showMenPage(req, res){
