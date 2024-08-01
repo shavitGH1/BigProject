@@ -86,6 +86,11 @@ border: 3px solid  #ccc;;
 body{
 background-color:rgb(230, 220, 201);
 }
+
+.getLine{
+  display: flex;
+flex-direction: column;
+}  
 /*
 .top5{
 display: flex;
