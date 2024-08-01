@@ -28,7 +28,7 @@ router.route("/signUp").get(homeController.showsignup);
 
 router.route("/branches").get(homeController.showBranchesPage);
 
-router.route("/cart").get(homeController.showcart);
+router.route("/cart").get(productsController.isLoggedIn, homeController.showcart);
 
 router.route("/graph").get(homeController.showGraph);
 
