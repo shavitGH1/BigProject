@@ -1,0 +1,14 @@
+#logo{
+    height: 90px;
+    width: 150px;
+    position: absolute;
+    right: 10px;
+  }
+  header{
+    width: 98%;
+    position:absolute;
+}
+.col-lg-5{
+    position:absolute;
+    left: 55%;
+}
