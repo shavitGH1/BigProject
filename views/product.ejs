@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="/home2.css" rel="stylesheet">
 </head>
-<body>
+<body >
     <div>
         
     </div>
     <div>
         <p>
+            Product information:
+            <br><br>
         ID: <%= product._id %>,
         Name: <%= product.name %>,
         Description: <%= product.description %>,
@@ -18,12 +21,16 @@
         Company: <%= product.company %>,
         Size: <%= product.size %></p>
         price: <%= product.price %></p>
-         image:<img class="pic" src="<%=  product.image %>" alt="<%= product.name %>"> 
+         image:
+         <br><br>
+         <img class="pic" src="<%=  product.image %>" alt="<%= product.name %>">
+         <br><br> 
         
         <form action="/products/<%= product.name %>/delete?_method=DELETE" method="post">
-            <button type="submit">Delete</button>
+            <button class="clean" type="submit">Delete</button>
+            <br><br>
         </form>
-        <hr>
+        Editing information:
     </div>
     <% if (username == 'admin') { %>
         <form action="/products/<%= product.name %>/update" method="post">

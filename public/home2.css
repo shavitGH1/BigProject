@@ -189,7 +189,7 @@
 .champ{
   display: flex;
   flex-direction: row;
-  gap: 3%;
+  gap: 0.5%;
 }
 .menButton{
   border: none;
@@ -207,10 +207,19 @@
 }
 #numOfUsers{
   font-size: 18pt;
-
 }
 
 #numOfWomenProd{
   color: rgb(230, 220, 201);
 
+}
+.pic{
+  width: 10%;
+  height: 10%;
+}
+body{
+  background-color: rgb(230, 220, 201);
+}
+.clean{
+  background: none
 }
