@@ -113,7 +113,23 @@
     background:none;
     color: red;
 }
-
+.remove-item-btn{
+    /* border: none; */
+    border-color:red ;
+    border-radius: 10%;
+    background: none;
+}
+.cart-item-image{
+    height: 200px;
+    width: 300px;
+}
+.add{
+    border: none;
+    background: none;
+}
+.delete{
+    background: none;
+}
 /* .container {
     max-width: 800px;
     margin: 0 auto;
