@@ -5,3 +5,7 @@ body{
 .row{
   background-color:rgb(230, 220, 201);
 }
+.same{
+  width: 400px;
+  height: 300px;
+}

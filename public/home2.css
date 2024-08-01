@@ -189,7 +189,7 @@
 .champ{
   display: flex;
   flex-direction: row;
-  gap: 2%;
+  gap: 3%;
 }
 .menButton{
   border: none;

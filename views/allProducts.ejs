@@ -32,7 +32,7 @@
     <% if (allProducts && allProducts.length) { %>
         <% allProducts.forEach(function(product) { %>
             <div>
-                <img src="<%=  product.image %>" alt="<%= product.name %>">
+                <img class="same" src="<%=  product.image %>" alt="<%= product.name %>">
 
                 <p id="<%= product.name %>">
                 Name: <%= product.name %>,
